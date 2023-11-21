@@ -6,9 +6,10 @@ import traceback  # Import traceback module for debugging
 
 app = Flask(__name__)
 
-current_dir = os.getcwd()
+# current_dir = os.getcwd()
 
-model_path = os.path.join(current_dir, 'payments.pkl')
+model_path = "payments.pkl"
+
 model = None  # Initialize model outside of conditional block
 
 if os.path.exists(model_path):
