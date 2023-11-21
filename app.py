@@ -22,6 +22,8 @@ if os.path.exists(model_path):
 else:
     print(f"Model file '{model_path}' not found.")
 
+model = joblib.load(model_path)
+
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -40,6 +42,8 @@ def predict():
         ]
 
         df = pd.DataFrame([features], columns=['step', 'type', 'amount', 'oldbalanceOrg', 'newbalanceOrig', 'oldbalanceDest', 'newbalanceDest'])
+
+        model = joblib.load(model_path)
 
         prediction = model.predict(df)[0]
 
