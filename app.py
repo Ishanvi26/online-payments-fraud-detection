@@ -40,6 +40,3 @@ def predict():
         return render_template('submit.html', result=result)
 
     return render_template('predict.html')
-
-if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0')
