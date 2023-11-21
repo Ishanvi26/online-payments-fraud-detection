@@ -6,14 +6,15 @@ import traceback  # Import traceback module for debugging
 
 app = Flask(__name__)
 
-script_directory = os.path.dirname(os.path.abspath(__file__))
+#script_directory = os.path.dirname(os.path.abspath(__file__))
+#model_filename = 'model.pkl'
+#model_path = os.path.join(script_directory, model_filename)
+#model = joblib.load(model_path)
 
-# Define the relative path to the model file
-model_filename = 'model.pkl'
-model_path = os.path.join(script_directory, model_filename)
 
-# Load the model
-model = joblib.load(model_path)
+print("Current Directory:", os.getcwd())
+print("Files in Current Directory:", os.listdir())
+
 
 if os.path.exists(model_path):
     try:
