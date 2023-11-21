@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import pandas as pd
 import joblib
 import os
+import traceback  # Import traceback module for debugging
 
 app = Flask(__name__)
 
@@ -10,7 +11,14 @@ current_dir = os.getcwd()
 model_path = os.path.join(current_dir, 'payments.pkl')
 
 if os.path.exists(model_path):
-    model = joblib.load(model_path)
+    try:
+        # Add more debug information
+        print(f"Loading model from: {model_path}")
+        model = joblib.load(model_path)
+        print("Model loaded successfully!")
+    except Exception as e:
+        print(f"Error loading the model: {e}")
+        traceback.print_exc()  # Print the stack trace for debugging
 else:
     print(f"Model file '{model_path}' not found.")
 
