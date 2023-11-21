@@ -10,3 +10,4 @@ zipp==3.10.0
 xgboost
 pandas
 numpy
+joblib
