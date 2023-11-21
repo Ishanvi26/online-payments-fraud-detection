@@ -6,19 +6,15 @@ import traceback  # Import traceback module for debugging
 
 app = Flask(__name__)
 
-#current_dir = os.getcwd()
+current_dir = os.getcwd()
 
-#model_path = os.path.join(current_dir, 'payments.pkl')
-
-import pickle
+model_path = os.path.join(current_dir, 'payments.pkl')
 
 if os.path.exists(model_path):
     try:
         # Add more debug information
         print(f"Loading model from: {model_path}")
-        #model = joblib.load(model_path)
-        with open(model_path, 'rb') as model_file:
-            model = pickle.load(model_file)
+        model = joblib.load(model_path)
         print("Model loaded successfully!")
     except Exception as e:
         print(f"Error loading the model: {e}")
